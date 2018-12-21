@@ -14,6 +14,8 @@ mm_max_arc_error                             0.01             # The maximum erro
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 # See http://smoothieware.org/stepper-motors
+# #1/16 200 or 1/32 400
+# #1/16 1600 or 1/32 3200
 alpha_steps_per_mm                           200               # Steps per mm for alpha ( X ) stepper
 beta_steps_per_mm                            200               # Steps per mm for beta ( Y ) stepper
 gamma_steps_per_mm                           4535.44             # Steps per mm for gamma ( Z ) stepper
@@ -44,7 +46,7 @@ alpha_current                                1.5              # X stepper motor 
 alpha_max_rate                               11000.0          # Maximum rate in mm/min
 
 beta_step_pin                                2.1              # Pin for beta stepper step signal
-beta_dir_pin                                 0.11             # Pin for beta stepper direction, add '!' to reverse direction
+beta_dir_pin                                 0.11!             # Pin for beta stepper direction, add '!' to reverse direction
 beta_en_pin                                  0.10             # Pin for beta enable
 beta_current                                 1.5              # Y stepper motor current
 beta_max_rate                                11000.0          # Maxmimum rate in mm/min
