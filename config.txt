@@ -92,12 +92,6 @@ switch.fan.output_type                       pwm              # PWM output setta
 #switch.misc.output_type                     digital          # Digital means this is just an on or off pin
 
 
-## JOG CONTROL FOR XY Z LIGHTS
-#switch.module_name.output_type              hwpwm
-#switch.module_name.pwm_period_ms            1000
-#switch.module_name.startup_value            127
-#switch.module_name
-#switch.module_name.output_type              pwm
 
 ## Endstops
 # See http://smoothieware.org/endstops
@@ -229,4 +223,33 @@ kill_button_pin                              2.12             # Kill button pin.
 # See http://smoothieware.org/currentcontrol
 currentcontrol_module_enable                 true             # Control stepper motor current via the configuration file
 
+## JOG CONTROL FOR XY Z LIGHTS
+jogger.enable                                true
+jogger.data_source_alpha                     horizontal       # Specifies module name of the Joystick module the first jog axis will read from
+jogger.data_source_beta                      vertical         # Specifies module name of the Joystick module the first jog axis will read from
+jogger.jog_axes                              XY,-Z            # Sets a list of the machine axes which will be controlled by the jogger 
+jogger.m_code_set	                           777	            # Sets which M-code number the set axes command will use (777 means use M777 to set the jog axes)
+jogger.m_code_toggle	                       778	            # Sets which M-code number the toggle axes command will use (778 means use M778 to toggle the jog axes)
+jogger.max_speed	                           600	            # Sets the maximum speed the machine will jog 
+jogger.dead_zone	                           0.05	            # Sets the threshold the joystick must cross before movement occurs (see description below)
+jogger.nonlinearity	                         1.5	            # Sets the non-linearity of the joystick to speed conversion function (see description below)
+jogger.refresh_rate                        	 100	            # Specifies how many times per second to read the joysticks
+jogger.segment_frequency	                   10	              # Sets the number of tiny movement segments per second while jogging 
+
+#switch.set_xyz.enable                        true
+#switch.set_xyz.startup_state                 true
+#switch.set_xyz.input_pin                     
+#switch.set_xyz.input_pin_behavior            toggle
+#switch.set_xyz.input_on_command                               # Calling this command sets the switch ON
+#switch.set_xyz.input_off_command                              # Calling this command sets the switch OFF
+#switch.set_xyz.
+
+#switch.set_xyz.output_on_command             M777 XY          # Set to XY ON
+#switch.set_xyz.output_off_command            M777 -Z          # Set to Z OFF
+#switch.set_xyz.output_type                   hwpwm            # Sets PWM to 50% duty cycle / 1000ms Freq to Blink Led
+#switch.set_xyz.output_pin 
+#switch.set_xyz.pwm_period_ms                 1000
+#switch.set_xyz.startup_value                 127
+
+#switch.set_xyz
 
