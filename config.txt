@@ -18,7 +18,7 @@ mm_max_arc_error                             0.01             # The maximum erro
 # #1/16 1600 or 1/32 3200
 alpha_steps_per_mm                           200               # Steps per mm for alpha ( X ) stepper
 beta_steps_per_mm                            200               # Steps per mm for beta ( Y ) stepper
-gamma_steps_per_mm                           4535.44             # Steps per mm for gamma ( Z ) stepper
+gamma_steps_per_mm                           800             # Steps per mm for gamma ( Z ) stepper
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
@@ -164,16 +164,15 @@ panel.enable                                 true             # Set to true to e
 panel.lcd                                   reprap_discount_glcd     #
 panel.spi_channel                           0                 # SPI channel to use  ; GLCD EXP1 Pins 3,5 (MOSI, SCLK)
 panel.spi_cs_pin                            0.16              # SPI chip select     ; GLCD EXP1 Pin 4
-panel.encoder_a_pin                         3.25!^            # Encoder pin         ; GLCD EXP2 Pin 3
-panel.encoder_b_pin                         3.26!^            # Encoder pin         ; GLCD EXP2 Pin 5
+panel.encoder_a_pin                         3.26!^            # Encoder pin         ; GLCD EXP2 Pin 3
+panel.encoder_b_pin                         3.25!^            # Encoder pin         ; GLCD EXP2 Pin 5
 panel.click_button_pin                      1.30!^            # Click button        ; GLCD EXP1 Pin 2
 panel.buzz_pin                              1.31              # Pin for buzzer      ; GLCD EXP1 Pin 1
 panel.back_button_pin                       2.11!^            # Back button         ; GLCD EXP2 Pin 8
+panel.menu_offset                            1                 # Some panels will need 1 here
 
-panel.menu_offset                            0                 # Some panels will need 1 here
-
-panel.alpha_jog_feedrate                     6000              # X jogging feedrate in mm/min
-panel.beta_jog_feedrate                      6000              # Y jogging feedrate in mm/min
+panel.alpha_jog_feedrate                     1000              # X jogging feedrate in mm/min
+panel.beta_jog_feedrate                      1000              # Y jogging feedrate in mm/min
 panel.gamma_jog_feedrate                     200               # Z jogging feedrate in mm/min
 
 #panel.hotend_temperature                     185               # Temp to set hotend when preheat is selected
